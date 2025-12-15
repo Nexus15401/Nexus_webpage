@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Reportes · Nexus R&D Labs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/nexus_logo_512.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="img/nexus_logo_512.png" alt="Nexus R&D Labs" class="logo-nav">
+            <span class="fw-semibold brand-text">Nexus R&amp;D Labs</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#sectores">Sectores</a></li>
+                <li class="nav-item"><a class="nav-link active" href="reports.html">Reportes</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="section-padding-top">
+    <section class="section-padding">
+        <div class="container">
+            <div class="row mb-4 align-items-end">
+                <div class="col-lg-8">
+                    <p class="section-label">Reportes</p>
+                    <h1 class="section-title">Repositorio de estudios, reportes y proyectos.</h1>
+                    <p class="text-muted">
+                        Aquí podrás ir publicando tus trabajos: tesis dirigidas, estudios para empresas,
+                        evaluaciones de impacto, dashboards, ensayos técnicos, etc.
+                        Cada tarjeta puede enlazar a un PDF, Google Drive, GitHub u otra página.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- EJEMPLO 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <article class="card-report card-report-lg">
+                        <span class="badge-report">Tesis · Educación</span>
+                        <h2>Determinantes de la deserción universitaria usando modelos de ML</h2>
+                        <p class="card-report-meta">Perú · Base de datos de estudiantes 2014–2024</p>
+                        <p class="card-report-text">
+                            Combinación de modelos de supervivencia y algoritmos de clasificación para
+                            identificar factores de riesgo y perfiles de estudiantes vulnerables.
+                        </p>
+                        <a href="#" class="card-report-link">Descargar PDF &rarr;</a>
+                    </article>
+                </div>
+
+                <!-- EJEMPLO 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <article class="card-report card-report-lg">
+                        <span class="badge-report">Empresa · Servicios</span>
+                        <h2>Modelo de churn y recomendaciones para una compañía de suscripción</h2>
+                        <p class="card-report-meta">Latam · Servicios digitales</p>
+                        <p class="card-report-text">
+                            Análisis de cohortes, modelos de clasificación y segmentación para priorizar
+                            acciones comerciales de retención.
+                        </p>
+                        <a href="#" class="card-report-link">Ver dashboard &rarr;</a>
+                    </article>
+                </div>
+
+                <!-- EJEMPLO 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <article class="card-report card-report-lg">
+                        <span class="badge-report">Sector público</span>
+                        <h2>Ejecución presupuestal e inversión pública municipal 2019–2024</h2>
+                        <p class="card-report-meta">Análisis panel · Gobiernos locales</p>
+                        <p class="card-report-text">
+                            Uso de datos panel y técnicas de causalidad para evaluar la relación entre
+                            planificación de inversiones y ejecución efectiva del presupuesto.
+                        </p>
+                        <a href="#" class="card-report-link">Ver resumen ejecutivo &rarr;</a>
+                    </article>
+                </div>
+
+                <!-- Puedes ir copiando más bloques como estos para nuevos reportes -->
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer-main">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 small text-muted">
+                © <span id="year"></span> Nexus R&amp;D Labs. Todos los derechos reservados.
+            </div>
+            <div class="col-md-6 text-md-end small">
+                Reportes · Versión inicial.
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

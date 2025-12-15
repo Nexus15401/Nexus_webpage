@@ -1,0 +1,248 @@
+:root {
+    --nexus-dark: #020617;
+    --nexus-dark-alt: #0b1220;
+    --nexus-blue: #3b82f6;
+    --nexus-blue-soft: #e5f0ff;
+    --nexus-border: #e5e7eb;
+    --nexus-text: #111827;
+    --nexus-muted: #6b7280;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--nexus-text);
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR */
+
+.logo-nav {
+    height: 34px;
+    margin-right: 10px;
+}
+
+.brand-text {
+    color: var(--nexus-dark-alt);
+    font-size: 1.05rem;
+}
+
+.navbar .nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #475569;
+    margin-right: 0.3rem;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--nexus-blue);
+}
+
+/* HERO */
+
+.hero-landing {
+    position: relative;
+    min-height: 70vh;
+    padding-top: 120px; /* compensate fixed navbar */
+    padding-bottom: 80px;
+    background-image: url("img/hero1.jpg"); /* cambia esta imagen */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(15,23,42,0.92), rgba(15,23,42,0.82));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-kicker {
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #bfdbfe;
+    margin-bottom: 8px;
+}
+
+.hero-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    color: #e5e7eb;
+    max-width: 640px;
+    margin-bottom: 20px;
+}
+
+.hero-actions .btn {
+    font-size: 0.95rem;
+}
+
+.hero-tagline {
+    font-size: 0.9rem;
+    color: #cbd5f5;
+    margin-top: 12px;
+}
+
+/* SECTIONS */
+
+.section-padding {
+    padding: 72px 0;
+}
+
+.section-padding-top {
+    padding-top: 110px; /* for fixed navbar */
+}
+
+.section-alt {
+    background-color: #f5f7fb;
+}
+
+.section-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--nexus-blue);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* CARDS */
+
+.card-service,
+.card-sector,
+.card-report,
+.card-contact,
+.card-founder {
+    border-radius: 16px;
+    border: 1px solid var(--nexus-border);
+    padding: 18px 18px 16px;
+    background-color: #ffffff;
+}
+
+.card-service h3,
+.card-sector h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.card-service p,
+.card-sector p,
+.card-report-text {
+    font-size: 0.9rem;
+    color: var(--nexus-muted);
+}
+
+.card-service ul,
+.card-sector ul {
+    padding-left: 17px;
+    margin-bottom: 0;
+}
+
+.card-service li,
+.card-sector li {
+    font-size: 0.86rem;
+    color: #4b5563;
+}
+
+/* REPORTS */
+
+.card-report {
+    position: relative;
+    height: 100%;
+}
+
+.card-report-lg h2 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.badge-report {
+    display: inline-block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--nexus-blue);
+    background-color: var(--nexus-blue-soft);
+    padding: 3px 8px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+.card-report-meta {
+    font-size: 0.8rem;
+    color: var(--nexus-muted);
+    margin-bottom: 6px;
+}
+
+.card-report-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--nexus-blue);
+    text-decoration: none;
+}
+
+.card-report-link:hover {
+    text-decoration: underline;
+}
+
+/* LISTS */
+
+.list-check {
+    padding-left: 1.1rem;
+}
+
+.list-check li {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-bottom: 4px;
+}
+
+/* CONTACT */
+
+.card-contact .form-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* FOOTER */
+
+.footer-main {
+    background-color: var(--nexus-dark);
+    color: #cbd5f5;
+    padding: 18px 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-landing {
+        padding-top: 110px;
+        padding-bottom: 60px;
+    }
+}

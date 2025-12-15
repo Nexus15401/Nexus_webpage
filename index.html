@@ -1,533 +1,716 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>eLEARNING - eLearning HTML Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <title>Nexus R&D Labs - IA, Ciencia de Datos y Investigación Aplicada</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nexus-dark: #041424;
+            --nexus-dark-alt: #071b33;
+            --nexus-blue: #3b82f6;
+            --nexus-blue-soft: #e5f0ff;
+        }
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #111827;
+        }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        a {
+            text-decoration: none;
+        }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+        .navbar-brand img {
+            height: 36px;
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--nexus-blue);
+        }
+
+        .btn-primary {
+            background-color: var(--nexus-blue);
+            border-color: var(--nexus-blue);
+            border-radius: 999px;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: #2554b0;
+            border-color: #2554b0;
+        }
+
+        /* HERO con fondo rotatorio */
+        .hero {
+            position: relative;
+            color: #ffffff;
+            padding: 110px 0 90px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top left, rgba(31,41,55,0.95) 0, rgba(2,6,23,0.88) 65%);
+            z-index: 1;
+        }
+
+        .hero > .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-kicker {
+            font-size: 0.85rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #93c5fd;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: #e5e7eb;
+            max-width: 620px;
+        }
+
+        .hero-cta .btn {
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        .hero-tagline {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-top: 16px;
+        }
+
+        /* Bloques de sección */
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.10em;
+            color: var(--nexus-blue);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        /* SERVICIOS */
+        .services {
+            padding: 70px 0 40px;
+        }
+
+        .service-card {
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            padding: 18px 18px 16px;
+            background-color: #ffffff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        .service-card a {
+            font-size: 0.85rem;
+            color: var(--nexus-blue);
+            font-weight: 500;
+        }
+
+        /* TENDENCIAS / BLOG */
+        .tendencias {
+            background-color: var(--nexus-blue-soft);
+            padding: 70px 0 60px;
+        }
+
+        .trend-card {
+            border-radius: 14px;
+            background-color: #ffffff;
+            padding: 18px;
+            height: 100%;
+            border: 1px solid #dbe3ff;
+        }
+
+        .trend-date {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .trend-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .trend-summary {
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        .trend-card a {
+            font-size: 0.85rem;
+            color: var(--nexus-blue);
+            font-weight: 500;
+        }
+
+        /* REPORTES */
+        .reportes {
+            padding: 70px 0 60px;
+        }
+
+        .report-card {
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            padding: 18px;
+            background-color: #ffffff;
+            height: 100%;
+        }
+
+        .report-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--nexus-blue);
+            background-color: var(--nexus-blue-soft);
+            padding: 3px 8px;
+            border-radius: 999px;
+            margin-bottom: 8px;
+        }
+
+        .report-meta {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .report-text {
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        .report-link {
+            font-size: 0.85rem;
+            color: var(--nexus-blue);
+            font-weight: 500;
+        }
+
+        /* CASOS DE ÉXITO */
+        .casos {
+            padding: 70px 0 60px;
+        }
+
+        .caso-item {
+            margin-bottom: 26px;
+        }
+
+        .caso-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .caso-desc {
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: #020617;
+            color: #e5e7eb;
+            padding: 40px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer h5 {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            color: #f9fafb;
+        }
+
+        .footer a {
+            color: #9ca3af;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.86rem;
+        }
+
+        .footer a:hover {
+            color: #e5e7eb;
+        }
+
+        .footer .social a {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #111827;
+            margin-top: 20px;
+            padding-top: 12px;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 991.98px) {
+            .hero {
+                padding-top: 90px;
+                padding-bottom: 70px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
 
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Nexus Research Consulting</h2>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#top">
+            <img src="logo.png" alt="Nexus R&D Labs">
+            <span class="fw-semibold" style="color: var(--nexus-dark-alt);">Nexus R&amp;D Labs</span>
         </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
+                aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="courses.html" class="nav-item nav-link">Courses</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="partners.html" class="dropdown-item">Partnership</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+        <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" href="#servicios">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tendencias">Tendencias</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reportes">Reportes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#casos">Casos de éxito</a></li>
+                <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="ms-lg-3 d-flex align-items-center">
+                <button class="btn btn-primary btn-sm" onclick="location.href='#contacto'">
+                    Iniciar proyecto
+                </button>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
-    </nav>
-    <!-- Navbar End -->
+    </div>
+</nav>
 
-
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
-        <div class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Advance Academic Support</h5>
-                                <h1 class="display-3 text-white animated slideInDown">The Best Online Academic Assistance</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Get and leverage advance models to refine your research, analyze data, and write with clarity and precision.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
+<!-- HERO -->
+<section class="hero" id="top">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="hero-kicker">IA · Ciencia de Datos · Investigación </div>
+                <h1 class="hero-title">
+                    Modelos y Soluciones de datos a medida
+                </h1>
+                <p class="hero-subtitle">
+                    Nexus R&amp;D Labs combina econometría, Machine Learning y experiencia académica para
+                    transformar datos en decisiones académicas, corporativas e institucionales.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-lg" onclick="location.href='#servicios'">
+                        Ver servicios
+                    </button>
+                    <button class="btn btn-outline-light btn-lg" onclick="location.href='#contacto'">
+                        Agenda una reunión
+                    </button>
                 </div>
-            </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/hero-bg.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Stay ahead of the Competition</h5>
-                                <h1 class="display-3 text-white animated slideInDown">Empower your business with AI & ML</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Automate workflows, reduce costs and forecast the future with intelligence system that learn and adapt.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="hero-tagline">
+                    Proyectos basados en evidencia, con tecnologías de última generación y lenguaje claro.
                 </div>
             </div>
         </div>
     </div>
-    <!-- Carousel End -->
+</section>
 
+<!-- SERVICIOS -->
+<section class="services" id="servicios">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <div class="section-label">Servicios</div>
+                <h2 class="section-title">Soluciones de IA, ciencia de datos y apoyo académico.</h2>
+                <p class="text-muted">
+                    Diseñamos y ejecutamos proyectos de analítica avanzada, modelos de Machine Learning
+                    y acompañamiento metodológico, adaptados al nivel de cada cliente: estudiante,
+                    empresa o entidad pública.
+                </p>
+            </div>
+        </div>
 
-    <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                            <h5 class="mb-3">Skilled Instructors</h5>
-                            <p>Experienced academic and researchers will guide and enhance your projects.</p>
-                        </div>
+        <div class="row g-3">
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div>
+                        <h3>Modelos de Machine Learning</h3>
+                        <p>Diseño, entrenamiento y validación de modelos de predicción, clasificación y segmentación.</p>
                     </div>
+                    <a href="#">Conoce más &rarr;</a>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5 class="mb-3">Online Mettings</h5>
-                            <p>One-on-one or group sessions with experts and peers in real time from anywhere in the world.</p>
-                        </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div>
+                        <h3>Consultoría en Data Science</h3>
+                        <p>Uso estratégico de datos para responder preguntas de negocio y políticas públicas.</p>
                     </div>
+                    <a href="#">Conoce más &rarr;</a>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                            <h5 class="mb-3">Academic Support</h5>
-                            <p>Get expert assistance at every stage of your article, thesis or academic project.</p>
-                        </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div>
+                        <h3>Investigación aplicada</h3>
+                        <p>Apoyo en papers, tesis y policy papers con enfoque cuantitativo y causal.</p>
                     </div>
+                    <a href="#">Conoce más &rarr;</a>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                            <h5 class="mb-3">Book Library</h5>
-                            <p>Access to the most recent state of art resources - all in one place for a smart recomendation.</p>
-                        </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div>
+                        <h3>Automatización &amp; Dashboards</h3>
+                        <p>ETL, pipelines de datos y dashboards interactivos para monitoreo y toma de decisiones.</p>
                     </div>
+                    <a href="#">Conoce más &rarr;</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div>
+                        <h3>Econometría &amp; Causal Inference</h3>
+                        <p>Diseño de identificaciones, modelos estructurales y experimentos para medir impacto.</p>
+                    </div>
+                    <a href="#">Conoce más &rarr;</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div>
+                        <h3>Capacitación en IA</h3>
+                        <p>Programas de formación para equipos académicos y corporativos, en español e inglés.</p>
+                    </div>
+                    <a href="#">Conoce más &rarr;</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div>
+                        <h3>APIs y productos de software</h3>
+                        <p>Desarrollo de APIs, microservicios y herramientas internas basadas en modelos de IA.</p>
+                    </div>
+                    <a href="#">Conoce más &rarr;</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div>
+                        <h3>Consultoría estratégica</h3>
+                        <p>Hoja de ruta de datos, IA responsable y priorización de casos de uso para tu organización.</p>
+                    </div>
+                    <a href="#">Conoce más &rarr;</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Service End -->
+</section>
 
-
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/about.jpg" alt="" style="object-fit: cover;">
+<!-- TENDENCIAS -->
+<section class="tendencias" id="tendencias">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <div class="section-label">Tendencias</div>
+                <h2 class="section-title">Ideas y análisis sobre IA, datos y academia.</h2>
+                <p class="text-muted">
+                    Publicamos notas breves, análisis y resúmenes de casos para ayudarte a entender
+                    cómo la IA y la ciencia de datos se aplican en educación, negocios y sector público.
+                </p>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+                <div class="trend-card">
+                    <div class="trend-date">Noviembre 2025</div>
+                    <div class="trend-title">De regresiones clásicas a modelos de ML explicables.</div>
+                    <div class="trend-summary">
+                        ¿Cuándo tiene sentido pasar de OLS a modelos de gradiente boosting,
+                        random forests o redes neuronales? Una guía práctica para economistas y analistas.
                     </div>
+                    <a href="#">Leer artículo &rarr;</a>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">Welcome to Nexus Research Consulting</h1>
-                    <p class="mb-4">We empower students, researchers, and academic professionals to achieve excellence through innovative, AI-enhanced research support. At Nexus, we bridge traditional schollarship and modern technology.</p>
-                    <p class="mb-4">Funded by academic experts and data scientists, our mission is to make high-quality research guidance accessible, efficient, and intelligent. From thesis development to analysis, we provide end-to-end support powered by human expertise and machine learning.</p>
-                    <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Expert Academic Mentors</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>AI-Powered Research Tools</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Thesis & Dissertation Support</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Live Online Consultations</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Data Analysis with ML Models</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>NeXchange Community</p>
-                        </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="trend-card">
+                    <div class="trend-date">Octubre 2025</div>
+                    <div class="trend-title">IA para tesis: qué es ético y qué no.</div>
+                    <div class="trend-summary">
+                        Recomendaciones para usar IA generativa y herramientas de apoyo sin comprometer
+                        la integridad académica ni el valor del trabajo propio.
                     </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                    <a href="#">Leer artículo &rarr;</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="trend-card">
+                    <div class="trend-date">Septiembre 2025</div>
+                    <div class="trend-title">Paneles y dashboards para gestión pública basada en datos.</div>
+                    <div class="trend-summary">
+                        Cómo los gobiernos locales y ministerios pueden monitorear indicadores en tiempo real,
+                        con métricas claras y datos trazables.
+                    </div>
+                    <a href="#">Leer artículo &rarr;</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+</section>
 
-
-    <!-- Categories Start -->
-    <div class="container-xxl py-5 category">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
-                <h1 class="mb-5">Our Services</h1>
+<!-- REPORTES -->
+<section class="reportes" id="reportes">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <div class="section-label">Reportes</div>
+                <h2 class="section-title">Estudios y proyectos en los que estamos trabajando.</h2>
+                <p class="text-muted">
+                    Aquí podrás ir publicando tus reportes: tesis dirigidas, análisis para empresas,
+                    evaluaciones de impacto y otros proyectos. Cada tarjeta puede apuntar a un PDF, GitHub o dashboard.
+                </p>
             </div>
-            <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-1.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Bachellor's Thesis & Research Guidance</h5>
-                                    <small class="text-primary">49 Subjects</small>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-2.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Master's Thesis & Research Guidance</h5>
-                                    <small class="text-primary">49 Subjects</small>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-3.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Observation Gathering</h5>
-                                    <small class="text-primary">49 Subjects</small>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/cat-4.jpg" alt="" style="object-fit: cover;">
-                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                            <h5 class="m-0">Integrity Tools & Plagirism Check</h5>
-                            <small class="text-primary">49 Subjects</small>
-                        </div>
-                    </a>
-                </div> uyf
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+                <article class="report-card">
+                    <span class="report-badge">Académico · Draft</span>
+                    <h3>Predicción de matrícula universitaria con modelos de ML</h3>
+                    <p class="report-meta">Perú · Educación superior</p>
+                    <p class="report-text">
+                        Modelos de predicción de demanda por programa, combinando datos históricos,
+                        variables socioeconómicas y señales de búsqueda.
+                    </p>
+                    <a href="#" class="report-link">Ver resumen &rarr;</a>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <article class="report-card">
+                    <span class="report-badge">Empresa</span>
+                    <h3>Tablero de riesgo operativo para una empresa de servicios</h3>
+                    <p class="report-meta">Latam · Servicios</p>
+                    <p class="report-text">
+                        Diseño de indicadores, pipeline de datos y dashboard con alertas
+                        tempranas para mejorar la gestión de riesgo.
+                    </p>
+                    <a href="#" class="report-link">Ver reporte &rarr;</a>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <article class="report-card">
+                    <span class="report-badge">Política pública</span>
+                    <h3>Inversión pública y ejecución presupuestal municipal</h3>
+                    <p class="report-meta">Gobiernos locales · Panel 2019–2024</p>
+                    <p class="report-text">
+                        Uso de datos panel y métodos de identificación causal para evaluar el impacto
+                        de la planificación de inversiones sobre la ejecución del gasto.
+                    </p>
+                    <a href="#" class="report-link">Ver resumen ejecutivo &rarr;</a>
+                </article>
             </div>
         </div>
     </div>
-    <!-- Categories Start -->
+</section>
 
-
-    <!-- Courses Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
-                <h1 class="mb-5">Popular Services</h1>
+<!-- CASOS DE ÉXITO -->
+<section class="casos" id="casos">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <div class="section-label">Casos de éxito</div>
+                <h2 class="section-title">Resultados que conectan datos con impacto real.</h2>
+                <p class="text-muted">
+                    Trabajamos con estudiantes, equipos de investigación, empresas y organizaciones
+                    que necesitan proyectos serios, trazables y defendibles frente a comités, gerencias o entidades reguladoras.
+                </p>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-1.jpg" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">S/ 29.00</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div>
-                            <h5 class="mb-4">Integrity Tools & Plagiarism Check</h5>
-                        </div>
-                        <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Juan Alfaro</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>Anytime</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>one-on-one and group</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-2.jpg" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">S/ 39.00</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div>
-                            <h5 class="mb-4">Observations Gathering</h5>
-                        </div>
-                        <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Juan Alfaro</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>Anytime</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>one-on-one or group</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-3.jpg" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">S/ 699.00</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div>
-                            <h5 class="mb-4">Thesis & Academic Project Writing</h5>
-                        </div>
-                        <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Juan Alfaro</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>120 Hrs</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>one-on-one or group projects</small>
-                        </div>
-                    </div>
-                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-3 caso-item">
+                <h3 class="caso-title">Tesis con modelo de scoring crediticio</h3>
+                <p class="caso-desc">
+                    Acompañamos a un estudiante de economía en el diseño, modelamiento y defensa
+                    de una tesis basada en modelos de scoring crediticio con ML, validada frente a un comité académico exigente.
+                </p>
+            </div>
+            <div class="col-md-6 col-lg-3 caso-item">
+                <h3 class="caso-title">Dashboard de riesgo operativo para una PyME</h3>
+                <p class="caso-desc">
+                    Implementamos un pipeline de datos y tablero de indicadores que redujo en 20% los tiempos
+                    de reporte y permitió anticipar eventos de riesgo clave.
+                </p>
+            </div>
+            <div class="col-md-6 col-lg-3 caso-item">
+                <h3 class="caso-title">Evaluación de impacto en política pública</h3>
+                <p class="caso-desc">
+                    Diseñamos una estrategia de identificación y un set de modelos para medir el impacto
+                    de un programa social, con resultados claros para la toma de decisiones.
+                </p>
+            </div>
+            <div class="col-md-6 col-lg-3 caso-item">
+                <h3 class="caso-title">Capacitación en IA para un equipo académico</h3>
+                <p class="caso-desc">
+                    Entrenamos a docentes y jóvenes investigadores en técnicas de Machine Learning,
+                    buenas prácticas de código y reproducibilidad científica.
+                </p>
             </div>
         </div>
     </div>
-    <!-- Courses End -->
+</section>
 
-
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
-                <h1 class="mb-5">Expert Instructors</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Juan Alfaro</h5>
-                            <small>Big Data & ML Specialist</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Aracely Calderon</h5>
-                            <small>Enginering and Matherial Process Specialist</small>
-                        </div>
-                    </div>
-                </div>
+<!-- NOSOTROS -->
+<section class="services" id="nosotros">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <div class="section-label">Nosotros</div>
+                <h2 class="section-title">Una boutique de IA y ciencia de datos con ADN académico.</h2>
+                <p class="text-muted">
+                    Nexus R&amp;D Labs nace de la experiencia en investigación económica, ciencia de datos
+                    y consultoría aplicada. Nuestro enfoque combina rigor técnico, comunicación clara
+                    y acompañamiento cercano a cada cliente.
+                </p>
+                <p class="text-muted mb-0">
+                    Trabajamos de forma remota desde Lima, Perú, con clientes en Latinoamérica y otros países,
+                    ofreciendo entregables reproducibles, documentados y defendibles frente a audiencias técnicas y no técnicas.
+                </p>
             </div>
         </div>
     </div>
-    <!-- Team End -->
+</section>
 
+<!-- CONTACTO + FOOTER -->
+<footer class="footer" id="contacto">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <h5>Contacto</h5>
+                <p>Lima, Perú (atendemos de forma remota a Latinoamérica y otros países).</p>
+                <p class="mb-1">Teléfono / WhatsApp: <br><strong>+51 930 884 178</strong></p>
+                <p class="mb-1">Correo: <br><strong>jc6286714@gmail.com</strong></p>
+            </div>
+            <div class="col-md-4">
+                <h5>Enlaces rápidos</h5>
+                <a href="#servicios">Servicios</a>
+                <a href="#tendencias">Tendencias</a>
+                <a href="#reportes">Reportes</a>
+                <a href="#casos">Casos de éxito</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Agenda una llamada</a>
+            </div>
+            <div class="col-md-4">
+                <h5>Redes</h5>
+                <div class="social">
+                    <a href="https://www.facebook.com/profile.php?id=61573920393466">Facebook</a>
+                    <a href="https://wa.me/qr/FZIZKVBAQDLRG1">WhatsApp</a>
+                    <a href="https://www.tiktok.com/@nexusrc4">TikTok</a>
+                    <a href="https://www.instagram.com/nexus15401?igsh=MW81ZHNvY3hzYTV0MA==">Instagram</a>
+                    <a href="https://youtube.com/@nexusrc_tv?feature=shared">YouTube</a>
+                    <a href="https://www.linkedin.com/company/blackboxperu/?viewAsMember=true">LinkedIn</a>
+                </div>
+            </div>
+        </div>
 
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Clients Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Raquel Contreras Juaréz</h5>
-                    <p>Ingeniero de Procesos (Chiapas, Mexico) </p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Muy buena honda, execelente equipo y servicio para grandes y pequeños proyectos.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Juan Manuel Contreras Juaréz</h5>
-                    <p>Tecnico en Proyectos - Chiapas, Mexico</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Exelente equipo, muy buena honda. Recomiendo Nexus RC para grandes y pequeños proyectos.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between">
+            <span>© <span id="year"></span> Nexus R&amp;D Labs. Todos los derechos reservados.</span>
+            <span>Sitio en desarrollo · Versión inicial para clientes y aliados.</span>
         </div>
     </div>
-    <!-- Testimonial End -->
-        
+</footer>
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Link</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">FAQs & Help</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Miraflores, Lima, Perú</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+51 930 884 178</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>jc6286714@gmail.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=61573920393466"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="https://wa.me/qr/FZIZKVBAQDLRG1 "><i class="fab fa-whatsapp"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="https://www.tiktok.com/@nexusrc4"><i class="fab fa-tiktok"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/nexus15401?igsh=MW81ZHNvY3hzYTV0MA=="><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="https://youtube.com/@nexusrc_tv?feature=shared"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/company/blackboxperu/?viewAsMember=true"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Nexus Research Consulting</a>, All Right Reserved.
+<!-- SCRIPTS -->
+<script>
+    // Año en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="">HTML Codex</a><br><br>
-                        Distributed By <a class="border-bottom" href="">ThemeWagon</a>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+    // Rotación de imágenes del HERO
+    const heroImages = [
+        "img/hero1.jpg",
+        "img/hero2.jpg",
+        "img/hero3.jpg"
+    ];
 
+    const heroSection = document.querySelector('.hero');
+    let heroIndex = 0;
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    if (heroSection && heroImages.length > 0) {
+        heroSection.style.backgroundImage = `url('${heroImages[0]}')`;
+        setInterval(() => {
+            heroIndex = (heroIndex + 1) % heroImages.length;
+            heroSection.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
+        }, 6000); // 6 segundos
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
+
+
+
+
+
+
